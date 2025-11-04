@@ -1,0 +1,522 @@
+---
+---
+
+<section class="environment" id="medio-ambiente">
+  <div class="environment-container">
+    <!-- Contenido principal -->
+    <div class="environment-content">
+      <div class="content-text">
+        <span class="section-label">Responsabilidad Social</span>
+        <h2 class="section-title">
+          Comprometidos con el
+          <span class="highlight">Medio Ambiente</span>
+        </h2>
+        
+        <div class="environment-description">
+          <div class="eco-icon">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <p class="description-text">
+            Contamos con servicio de recolección especial de todos nuestros residuos 
+            sólidos y líquidos por medio de empresas certificadas que los procesan, 
+            contribuyendo así a la preservación de los recursos ecológicos.
+          </p>
+        </div>
+
+        <div class="quote-box">
+          <div class="quote-icon">"</div>
+          <p class="quote-text">
+            Enseñar a cuidar el medio ambiente, es enseñar a valorar la vida
+          </p>
+          <div class="quote-decoration"></div>
+        </div>
+      </div>
+
+      <div class="content-visual">
+        <!-- Ilustración ecológica -->
+        <div class="eco-illustration">
+          <div class="eco-circle eco-circle-1">
+            <div class="eco-element">
+              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/>
+                <path d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+              </svg>
+              <span>Agua</span>
+            </div>
+          </div>
+
+          <div class="eco-circle eco-circle-2">
+            <div class="eco-element">
+              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+              <span>Reciclaje</span>
+            </div>
+          </div>
+
+          <div class="eco-circle eco-circle-3">
+            <div class="eco-element">
+              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+              </svg>
+              <span>Naturaleza</span>
+            </div>
+          </div>
+
+          <div class="eco-circle eco-circle-center">
+            <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M2 12h20"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Características ecológicas -->
+    <div class="eco-features">
+      <div class="feature-card">
+        <div class="feature-icon">♻️</div>
+        <h4 class="feature-title">Gestión de Residuos</h4>
+        <p class="feature-description">Recolección especializada de residuos sólidos y líquidos</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">🏆</div>
+        <h4 class="feature-title">Empresas Certificadas</h4>
+        <p class="feature-description">Trabajamos con empresas certificadas en procesamiento</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">🌱</div>
+        <h4 class="feature-title">Preservación Ecológica</h4>
+        <p class="feature-description">Contribuimos a la conservación de recursos naturales</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">💚</div>
+        <h4 class="feature-title">Compromiso Continuo</h4>
+        <p class="feature-description">Mejora constante de nuestras prácticas ambientales</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .environment {
+    padding: 6rem 2rem;
+    background: linear-gradient(135deg, #f8fdf9 0%, #e8f5e9 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .environment::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(76, 175, 80, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .environment::after {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    right: -150px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(31, 60, 104, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .environment-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Contenido principal */
+  .environment-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-label {
+    display: inline-block;
+    color: #4CAF50;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 700;
+    color: var(--color-black);
+    line-height: 1.2;
+    margin-bottom: 2rem;
+  }
+
+  .highlight {
+    color: #4CAF50;
+    position: relative;
+  }
+
+  .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    background: rgba(76, 175, 80, 0.2);
+    z-index: -1;
+  }
+
+  /* Descripción con icono */
+  .environment-description {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .eco-icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #4CAF50 0%, #81C784 100%);
+    border-radius: 50%;
+    color: white;
+  }
+
+  .description-text {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #555;
+  }
+
+  /* Caja de cita */
+  .quote-box {
+    position: relative;
+    padding: 2rem 2.5rem;
+    background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-black) 100%);
+    border-radius: 1rem;
+    box-shadow: 0 10px 40px rgba(31, 60, 104, 0.3);
+    overflow: hidden;
+  }
+
+  .quote-icon {
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    font-size: 6rem;
+    color: rgba(255, 255, 255, 0.1);
+    font-family: Georgia, serif;
+    line-height: 1;
+  }
+
+  .quote-text {
+    position: relative;
+    z-index: 1;
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: white;
+    font-style: italic;
+    margin: 0;
+  }
+
+  .quote-decoration {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(76, 175, 80, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  /* Ilustración ecológica */
+  .content-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .eco-illustration {
+    position: relative;
+    width: 400px;
+    height: 400px;
+  }
+
+  .eco-circle {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .eco-circle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 40px rgba(76, 175, 80, 0.3);
+  }
+
+  .eco-circle-1 {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+    animation-delay: 0s;
+  }
+
+  .eco-circle-2 {
+    bottom: 30px;
+    left: 30px;
+    background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+    animation-delay: 1.3s;
+  }
+
+  .eco-circle-3 {
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+    animation-delay: 2.6s;
+  }
+
+  .eco-circle-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, #4CAF50 0%, #81C784 100%);
+    z-index: 2;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  .eco-circle-center svg {
+    color: white;
+  }
+
+  .eco-element {
+    text-align: center;
+    color: var(--color-navy);
+  }
+
+  .eco-element span {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+
+  .eco-circle-1 {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .eco-circle-2 {
+    animation: float 4.5s ease-in-out infinite;
+  }
+
+  .eco-circle-3 {
+    animation: float 5s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+    }
+    50% {
+      box-shadow: 0 15px 40px rgba(76, 175, 80, 0.5);
+    }
+  }
+
+  /* Características ecológicas */
+  .eco-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .feature-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    text-align: center;
+  }
+
+  .feature-card:hover {
+    border-color: #4CAF50;
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(76, 175, 80, 0.2);
+  }
+
+  .feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .feature-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 0.75rem;
+  }
+
+  .feature-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+  }
+
+  /* Responsive */
+  @media (max-width: 968px) {
+    .environment {
+      padding: 4rem 1.5rem;
+    }
+
+    .environment-content {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .content-visual {
+      order: -1;
+    }
+
+    .eco-illustration {
+      width: 300px;
+      height: 300px;
+    }
+
+    .eco-circle {
+      width: 100px;
+      height: 100px;
+    }
+
+    .eco-circle svg {
+      width: 50px;
+      height: 50px;
+    }
+
+    .eco-circle-center {
+      width: 90px;
+      height: 90px;
+    }
+
+    .eco-circle-center svg {
+      width: 70px;
+      height: 70px;
+    }
+
+    .eco-features {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .environment {
+      padding: 3rem 1rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .environment-description {
+      flex-direction: column;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .description-text {
+      font-size: 1rem;
+    }
+
+    .quote-box {
+      padding: 1.5rem;
+    }
+
+    .quote-text {
+      font-size: 1rem;
+    }
+
+    .eco-illustration {
+      width: 250px;
+      height: 250px;
+    }
+
+    .eco-circle {
+      width: 80px;
+      height: 80px;
+    }
+
+    .eco-circle svg {
+      width: 40px;
+      height: 40px;
+    }
+
+    .eco-circle-center {
+      width: 70px;
+      height: 70px;
+    }
+
+    .eco-circle-center svg {
+      width: 50px;
+      height: 50px;
+    }
+
+    .eco-element span {
+      font-size: 0.75rem;
+    }
+
+    .eco-features {
+      grid-template-columns: 1fr;
+    }
+
+    .feature-card {
+      padding: 1.5rem;
+    }
+  }
+</style>

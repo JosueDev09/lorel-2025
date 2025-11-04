@@ -1,22 +1,70 @@
+---
+import Menu from "../components/menu/menu"
+// import Footer from "../components/footer/footer.astro";
+// import Analytics from '@vercel/analytics/astro'
+import { ClientRouter } from "astro:transitions";
+const { 
+  title = "LOREL - Cintas y etiquetas LOREL, S.A. de C.V.",
+  description = "Cintas y etiquetas LOREL, S.A. de C.V. - Innovación y calidad en cada producto.",
+  showMenu = true
+} = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		
+		<!-- Favicons -->
+		<link rel="icon" type="image/svg+xml" href="/cruz-negativa.svg" />
+		<link rel="icon" type="image/png" href="/cruz-negativa.svg" />
+		<link rel="apple-touch-icon" href="/cruz-negativa.svg" />
+		
+		<!-- SEO Meta Tags -->
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="author" content="Josué Dev" />
+		<meta name="keywords" content="desarrollador, full stack, react, node.js, astro, javascript, typescript, portafolio" />
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+     
+		<!-- Estilos globales -->
+		<link rel="stylesheet" href="/src/styles/global.css" />
 	</head>
+
 	<body>
-		<slot />
+		<!-- Menú fijo - Solo se muestra si showMenu es true -->
+		{showMenu && (
+			<header class="menu-fijo">
+				<Menu client:load />
+			</header>
+		)}
+
+		<!-- Contenedor del contenido desplazable -->
+		<div id="scroll-wrapper">
+			<main>
+			<slot />
+			</main>
+			
+		</div>
+		  <!-- <Analytics /> -->
 	</body>
+	<!-- <Footer/> -->
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+
+
+
+
+

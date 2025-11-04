@@ -1,0 +1,211 @@
+---
+import './hero.css';
+
+const slides = [
+  {
+    type: 'image',
+    src: '/images/hero1.webp',
+    alt: 'Impresión de alta calidad',
+    title: 'Cintas y Etiquetas',
+    subtitle: 'de Alta Calidad',
+    description: 'Innovación y precisión en cada producto'
+  },
+  {
+    type: 'image',
+    src: 'https://www.pexels.com/es-es/download/video/5943753/',
+    alt: 'Productos personalizados',
+    title: 'Productos',
+    subtitle: 'Personalizados',
+    description: 'Adaptados a las necesidades de tu negocio'
+  },
+  {
+    type: 'video',
+    src: 'https://cdn.pixabay.com/video/2019/07/15/25110-349763554_large.mp4',
+    poster: 'https://images.unsplash.com/photo-1565793298595-6a879b1d9492?q=80&w=2071&auto=format&fit=crop',
+    title: 'Tecnología',
+    subtitle: 'de Vanguardia',
+    description: 'Equipos de última generación'
+  }
+];
+---
+
+<section class="hero">
+  <!-- Slider de fondo -->
+  <div class="hero-slider">
+    {slides.map((slide, index) => (
+      <div class={`slide ${index === 0 ? 'active' : ''}`} data-slide={index}>
+        {slide.type === 'image' ? (
+          <img src={slide.src} alt={slide.alt} class="slide-media" />
+        ) : (
+          <video 
+            class="slide-media" 
+            autoplay 
+            muted 
+            loop 
+            playsinline
+            poster={slide.poster}
+          >
+            <source src={slide.src} type="video/mp4" />
+          </video>
+        )}
+        <div class="slide-overlay"></div>
+      </div>
+    ))}
+  </div>
+
+  <!-- Contenido del hero -->
+  <div class="hero-content">
+    <div class="content-wrapper">
+      {slides.map((slide, index) => (
+        <div class={`content-slide ${index === 0 ? 'active' : ''}`} data-content={index}>
+          <h1 class="hero-title">
+            {slide.title}
+            <span class="hero-subtitle">{slide.subtitle}</span>
+          </h1>
+          <p class="hero-description">{slide.description}</p>
+          <div class="hero-actions">
+            <a href="#contacto" class="btn btn-primary">Solicitar cotización</a>
+            <a href="#servicios" class="btn btn-secondary">Ver productos</a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Controles del slider -->
+    <div class="slider-controls">
+      <button class="slider-btn prev" aria-label="Anterior">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M15 18l-6-6 6-6"/>
+        </svg>
+      </button>
+      <div class="slider-dots">
+        {slides.map((_, index) => (
+          <button 
+            class={`dot ${index === 0 ? 'active' : ''}`} 
+            data-dot={index}
+            aria-label={`Ir a slide ${index + 1}`}
+          ></button>
+        ))}
+      </div>
+      <button class="slider-btn next" aria-label="Siguiente">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Indicador de scroll -->
+  <div class="scroll-indicator">
+    <div class="scroll-mouse"></div>
+  </div>
+</section>
+
+<script>
+  // Slider functionality
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+  const contentSlides = document.querySelectorAll('.content-slide');
+  const dots = document.querySelectorAll('.dot');
+  const totalSlides = slides.length;
+  let autoplayInterval: number;
+
+  function showSlide(index: number) {
+    // Asegurar que el índice esté dentro del rango
+    currentSlide = (index + totalSlides) % totalSlides;
+
+    // Actualizar slides
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === currentSlide);
+    });
+
+    // Actualizar contenido
+    contentSlides.forEach((content, i) => {
+      content.classList.toggle('active', i === currentSlide);
+    });
+
+    // Actualizar dots
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentSlide);
+    });
+  }
+
+  function nextSlide() {
+    showSlide(currentSlide + 1);
+  }
+
+  function prevSlide() {
+    showSlide(currentSlide - 1);
+  }
+
+  function startAutoplay() {
+    autoplayInterval = window.setInterval(nextSlide, 5000);
+  }
+
+  function stopAutoplay() {
+    clearInterval(autoplayInterval);
+  }
+
+  // Event listeners
+  document.querySelector('.next')?.addEventListener('click', () => {
+    nextSlide();
+    stopAutoplay();
+    startAutoplay();
+  });
+
+  document.querySelector('.prev')?.addEventListener('click', () => {
+    prevSlide();
+    stopAutoplay();
+    startAutoplay();
+  });
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      showSlide(index);
+      stopAutoplay();
+      startAutoplay();
+    });
+  });
+
+  // Touch/swipe support
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  const heroElement = document.querySelector('.hero');
+  
+  heroElement?.addEventListener('touchstart', (e) => {
+    touchStartX = (e as TouchEvent).changedTouches[0].screenX;
+  });
+
+  heroElement?.addEventListener('touchend', (e) => {
+    touchEndX = (e as TouchEvent).changedTouches[0].screenX;
+    handleSwipe();
+  });
+
+  function handleSwipe() {
+    if (touchEndX < touchStartX - 50) {
+      nextSlide();
+      stopAutoplay();
+      startAutoplay();
+    }
+    if (touchEndX > touchStartX + 50) {
+      prevSlide();
+      stopAutoplay();
+      startAutoplay();
+    }
+  }
+
+  // Iniciar autoplay
+  startAutoplay();
+
+  // Pausar autoplay cuando el usuario no está en la pestaña
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      stopAutoplay();
+    } else {
+      startAutoplay();
+    }
+  });
+</script>
+
+

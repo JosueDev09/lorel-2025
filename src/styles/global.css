@@ -1,0 +1,46 @@
+/* Reset y estilos base */
+ @import 'tailwindcss';  
+  :root{
+     
+  }
+	html{
+		 margin: 0;
+		padding: 0;
+	}
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+         scroll-behavior: smooth;
+         
+      }
+      section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        scroll-snap-align: start;
+        padding: 0.5rem 2rem; /* Padding mínimo */
+      }      
+   
+
+/* Utilidades de espaciado */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Variables de color corporativas LOREL */
+:root {
+  --color-navy: #1F3C68;
+  --color-wine: #9C2D32;
+  --color-black: #231F20;
+  --color-white: #ffffff;
+  --color-light-gray: #f8f9fa;
+}
+
+/* Accesibilidad */
+:focus-visible {
+  outline: 2px solid var(--color-navy);
+  outline-offset: 2px;
+}

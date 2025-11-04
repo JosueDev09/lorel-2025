@@ -1,0 +1,516 @@
+---
+// Datos de la empresa
+const milestones = [
+  {
+    year: '2000',
+    title: 'Fundación',
+    description: 'Inicia LOREL con la visión de ofrecer etiquetas de calidad'
+  },
+  {
+    year: '2008',
+    title: 'Crecimiento',
+    description: 'Ampliación de capacidad de producción y cartera de clientes'
+  },
+  {
+    year: '2015',
+    title: 'Innovación',
+    description: 'Incorporación de tecnología de impresión de vanguardia'
+  },
+  {
+    year: '2025',
+    title: 'Consolidación',
+    description: '25 años de confianza y excelencia en el sector'
+  }
+];
+
+const values = [
+  {
+    icon: '🤝',
+    title: 'Respeto',
+    description: 'Valoramos a cada persona y sus contribuciones'
+  },
+  {
+    icon: '👥',
+    title: 'Trabajo en Equipo',
+    description: 'Colaboración y unión para alcanzar objetivos comunes'
+  },
+  {
+    icon: '💎',
+    title: 'Compromiso',
+    description: 'Dedicación absoluta con nuestros clientes y proyectos'
+  },
+  {
+    icon: '⭐',
+    title: 'Excelencia',
+    description: 'Búsqueda constante de la máxima calidad'
+  }
+];
+---
+
+<section class="about" id="nosotros">
+  <div class="about-container">
+    <!-- Introducción -->
+    <div class="about-intro">
+      <div class="intro-content">
+        <span class="section-label">Sobre Nosotros</span>
+        <h2 class="section-title">
+          Nuestra <span class="highlight">Historia</span>
+        </h2>
+        <p class="intro-text">
+          En <strong>Cintas y Etiquetas Lorel</strong> somos una empresa con más de 25 años 
+          de experiencia en el rubro de impresión y fabricación de etiqueta en rollo, 
+          dándole a nuestros clientes la confianza de realizar sus proyectos con nosotros.
+        </p>
+        <p class="intro-text">
+          Nuestra trayectoria nos ha permitido consolidarnos como un socio confiable, 
+          ofreciendo soluciones de calidad que se adaptan a las necesidades específicas 
+          de cada cliente.
+        </p>
+      </div>
+      <div class="intro-image">
+        <img 
+          src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" 
+          alt="Equipo LOREL"
+          class="about-img"
+        />
+        <div class="image-decoration"></div>
+      </div>
+    </div>
+
+    <!-- Milestones Cards -->
+    <div class="milestones-section">
+      <h3 class="milestones-title">Nuestro Recorrido</h3>
+      <div class="milestones-grid">
+        {milestones.map((milestone, index) => (
+          <div class="milestone-card" data-aos="fade-up" data-aos-delay={index * 100}>
+            <div class="milestone-year">{milestone.year}</div>
+            <div class="milestone-content">
+              <h4 class="milestone-title">{milestone.title}</h4>
+              <p class="milestone-description">{milestone.description}</p>
+            </div>
+            <div class="milestone-number">{String(index + 1).padStart(2, '0')}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Valores -->
+    <div class="values-section">
+      <h3 class="values-title">Nuestros Valores</h3>
+      <div class="values-grid">
+        {values.map((value, index) => (
+          <div class="value-card" data-aos="zoom-in" data-aos-delay={index * 100}>
+            <div class="value-icon">{value.icon}</div>
+            <h4 class="value-title">{value.title}</h4>
+            <p class="value-description">{value.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Estadísticas -->
+    <div class="stats-section">
+      <div class="stat-item">
+        <div class="stat-number">25+</div>
+        <div class="stat-label">Años de Experiencia</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">5000+</div>
+        <div class="stat-label">Clientes Satisfechos</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Calidad Garantizada</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">Soporte al Cliente</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    padding: 6rem 2rem;
+    background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(31, 60, 104, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Introducción */
+  .about-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: 6rem;
+  }
+
+  .section-label {
+    display: inline-block;
+    color: var(--color-wine);
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 700;
+    color: var(--color-black);
+    line-height: 1.2;
+    margin-bottom: 2rem;
+  }
+
+  .highlight {
+    color: var(--color-navy);
+    position: relative;
+  }
+
+  .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    background: rgba(156, 45, 50, 0.2);
+    z-index: -1;
+  }
+
+  .intro-text {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 1.5rem;
+  }
+
+  .intro-text strong {
+    color: var(--color-navy);
+    font-weight: 600;
+  }
+
+  .intro-image {
+    position: relative;
+  }
+
+  .about-img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 1rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  }
+
+  .image-decoration {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 100%;
+    height: 100%;
+    border: 3px solid var(--color-wine);
+    border-radius: 1rem;
+    z-index: -1;
+  }
+
+  /* Milestones Cards */
+  .milestones-section {
+    margin-bottom: 6rem;
+  }
+
+  .milestones-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-black);
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .milestones-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .milestone-card {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+  }
+
+  .milestone-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-wine) 0%, var(--color-navy) 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .milestone-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    border-color: var(--color-wine);
+  }
+
+  .milestone-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .milestone-year {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-wine) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  .milestone-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .milestone-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-black);
+    margin-bottom: 0.75rem;
+  }
+
+  .milestone-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+  }
+
+  .milestone-number {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    font-size: 4rem;
+    font-weight: 900;
+    color: rgba(31, 60, 104, 0.05);
+    line-height: 1;
+    z-index: 0;
+  }
+
+  /* Valores */
+  .values-section {
+    margin-bottom: 6rem;
+  }
+
+  .values-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-black);
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .value-card {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 0.75rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+  }
+
+  .value-card:hover {
+    border-color: var(--color-wine);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(156, 45, 50, 0.15);
+  }
+
+  .value-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .value-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 0.75rem;
+  }
+
+  .value-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #666;
+  }
+
+  /* Estadísticas */
+  .stats-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    padding: 3rem;
+    background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-black) 100%);
+    border-radius: 1rem;
+    box-shadow: 0 20px 60px rgba(31, 60, 104, 0.3);
+  }
+
+  .stat-item {
+    text-align: center;
+    color: white;
+  }
+
+  .stat-number {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 800;
+    color: var(--color-wine);
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 10px rgba(156, 45, 50, 0.5);
+  }
+
+  .stat-label {
+    font-size: 1rem;
+    font-weight: 500;
+    opacity: 0.9;
+    letter-spacing: 0.5px;
+  }
+
+  /* Responsive */
+  @media (max-width: 968px) {
+    .about {
+      padding: 4rem 1.5rem;
+    }
+
+    .about-intro {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      margin-bottom: 4rem;
+    }
+
+    .intro-image {
+      order: -1;
+    }
+
+    .about-img {
+      height: 350px;
+    }
+
+    .milestones-grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .milestone-card {
+      padding: 2rem 1.5rem;
+    }
+
+    .milestone-year {
+      font-size: 2.5rem;
+    }
+
+    .milestone-title {
+      font-size: 1.25rem;
+    }
+
+    .values-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .stats-section {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .about {
+      padding: 3rem 1rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .intro-text {
+      font-size: 1rem;
+    }
+
+    .about-img {
+      height: 250px;
+    }
+
+    .image-decoration {
+      top: -10px;
+      right: -10px;
+    }
+
+    .milestones-grid {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .milestone-card {
+      padding: 1.5rem;
+    }
+
+    .milestone-year {
+      font-size: 2rem;
+    }
+
+    .milestone-number {
+      font-size: 3rem;
+      bottom: 1rem;
+      right: 1rem;
+    }
+
+    .stats-section {
+      grid-template-columns: 1fr;
+      padding: 1.5rem;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+    }
+
+    .stat-label {
+      font-size: 0.875rem;
+    }
+  }
+</style>

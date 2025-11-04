@@ -1,0 +1,500 @@
+---
+---
+
+<section class="delivery" id="entregas">
+  <div class="delivery-container">
+    <div class="delivery-content">
+      <!-- Header -->
+      <div class="delivery-header">
+        <span class="section-label">Información Importante</span>
+        <h2 class="section-title">
+          Tiempos de Entrega y <span class="highlight">Crédito</span>
+        </h2>
+      </div>
+
+      <!-- Tarjetas principales -->
+      <div class="delivery-cards">
+        <!-- Tiempo de Entrega -->
+        <div class="delivery-card time-card">
+          <div class="card-icon">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Tiempo de Entrega</h3>
+            <div class="card-value">7-12 días</div>
+            <p class="card-description">
+              Plazo estándar para la mayoría de nuestros productos
+            </p>
+          </div>
+        </div>
+
+        <!-- Crédito -->
+        <div class="delivery-card credit-card">
+          <div class="card-icon">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+              <line x1="1" y1="10" x2="23" y2="10"/>
+            </svg>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Opciones de Crédito</h3>
+            <div class="card-value">15-90 días</div>
+            <p class="card-description">
+              Facilidades de pago adaptadas a tu negocio
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Banner de urgencia -->
+      <div class="urgency-banner">
+        <div class="urgency-icon">⚡</div>
+        <div class="urgency-content">
+          <h4 class="urgency-title">¿Necesitas tu pedido urgente?</h4>
+          <p class="urgency-text">
+            En caso de requerir un pedido con carácter de urgencia, 
+            <strong>mejoramos el tiempo de entrega</strong> para cumplir con tus necesidades.
+          </p>
+        </div>
+        <a href="#contacto" class="urgency-btn">
+          Solicitar urgente
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Beneficios adicionales -->
+      <div class="benefits-grid">
+        <div class="benefit-item">
+          <div class="benefit-icon">✓</div>
+          <div class="benefit-text">
+            <strong>Seguimiento en línea</strong>
+            <span>Monitorea tu pedido en tiempo real</span>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">✓</div>
+          <div class="benefit-text">
+            <strong>Garantía de calidad</strong>
+            <span>Revisión exhaustiva antes de entrega</span>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">✓</div>
+          <div class="benefit-text">
+            <strong>Entrega puntual</strong>
+            <span>Cumplimiento en fecha acordada</span>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon">✓</div>
+          <div class="benefit-text">
+            <strong>Flexibilidad de pago</strong>
+            <span>Múltiples opciones de financiamiento</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .delivery {
+    padding: 6rem 2rem;
+    background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+    position: relative;
+  }
+
+  .delivery-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Header */
+  .delivery-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-label {
+    display: inline-block;
+    color: var(--color-wine);
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 700;
+    color: var(--color-black);
+    line-height: 1.2;
+  }
+
+  .highlight {
+    color: var(--color-navy);
+    position: relative;
+  }
+
+  .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    background: rgba(31, 60, 104, 0.2);
+    z-index: -1;
+  }
+
+  /* Tarjetas principales */
+  .delivery-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .delivery-card {
+    background: white;
+    padding: 3rem 2.5rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 3px solid transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .delivery-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .delivery-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  }
+
+  .delivery-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .time-card {
+    border-color: rgba(31, 60, 104, 0.1);
+  }
+
+  .time-card::before {
+    background: linear-gradient(90deg, var(--color-navy) 0%, #2a4d7d 100%);
+  }
+
+  .credit-card {
+    border-color: rgba(156, 45, 50, 0.1);
+  }
+
+  .credit-card::before {
+    background: linear-gradient(90deg, var(--color-wine) 0%, #b33b40 100%);
+  }
+
+  .card-icon {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-bottom: 2rem;
+  }
+
+  .time-card .card-icon {
+    background: linear-gradient(135deg, var(--color-navy) 0%, #2a4d7d 100%);
+    color: white;
+    box-shadow: 0 10px 30px rgba(31, 60, 104, 0.3);
+  }
+
+  .credit-card .card-icon {
+    background: linear-gradient(135deg, var(--color-wine) 0%, #b33b40 100%);
+    color: white;
+    box-shadow: 0 10px 30px rgba(156, 45, 50, 0.3);
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-black);
+    margin-bottom: 1rem;
+  }
+
+  .card-value {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  .time-card .card-value {
+    background: linear-gradient(135deg, var(--color-navy) 0%, #2a4d7d 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .credit-card .card-value {
+    background: linear-gradient(135deg, var(--color-wine) 0%, #b33b40 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+    margin: 0;
+  }
+
+  /* Banner de urgencia */
+  .urgency-banner {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2.5rem 3rem;
+    background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+    border-radius: 1.5rem;
+    border-left: 6px solid #FF9800;
+    margin-bottom: 3rem;
+    box-shadow: 0 8px 30px rgba(255, 152, 0, 0.15);
+  }
+
+  .urgency-icon {
+    font-size: 4rem;
+    flex-shrink: 0;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+  }
+
+  .urgency-content {
+    flex: 1;
+  }
+
+  .urgency-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-black);
+    margin-bottom: 0.5rem;
+  }
+
+  .urgency-text {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: #555;
+    margin: 0;
+  }
+
+  .urgency-text strong {
+    color: #FF9800;
+    font-weight: 700;
+  }
+
+  .urgency-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: #FF9800;
+    color: white;
+    border: none;
+    border-radius: 0.75rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .urgency-btn:hover {
+    background: #F57C00;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 152, 0, 0.4);
+  }
+
+  .urgency-btn svg {
+    transition: transform 0.3s ease;
+  }
+
+  .urgency-btn:hover svg {
+    transform: translateX(5px);
+  }
+
+  /* Beneficios */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 3rem;
+    background: white;
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  }
+
+  .benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  .benefit-icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #4CAF50 0%, #81C784 100%);
+    color: white;
+    border-radius: 50%;
+    font-size: 1.25rem;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+  }
+
+  .benefit-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .benefit-text strong {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-black);
+  }
+
+  .benefit-text span {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.5;
+  }
+
+  /* Responsive */
+  @media (max-width: 968px) {
+    .delivery {
+      padding: 4rem 1.5rem;
+    }
+
+    .delivery-cards {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .urgency-banner {
+      flex-direction: column;
+      text-align: center;
+      padding: 2rem;
+      gap: 1.5rem;
+    }
+
+    .urgency-btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .benefits-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .delivery {
+      padding: 3rem 1rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .delivery-card {
+      padding: 2rem 1.5rem;
+    }
+
+    .card-icon {
+      width: 80px;
+      height: 80px;
+    }
+
+    .card-icon svg {
+      width: 45px;
+      height: 45px;
+    }
+
+    .card-value {
+      font-size: 2.5rem;
+    }
+
+    .urgency-banner {
+      padding: 1.5rem;
+      gap: 1rem;
+    }
+
+    .urgency-icon {
+      font-size: 3rem;
+    }
+
+    .urgency-title {
+      font-size: 1.25rem;
+    }
+
+    .urgency-text {
+      font-size: 1rem;
+    }
+
+    .urgency-btn {
+      padding: 0.875rem 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .benefits-grid {
+      padding: 1.5rem;
+    }
+
+    .benefit-text strong {
+      font-size: 1rem;
+    }
+
+    .benefit-text span {
+      font-size: 0.875rem;
+    }
+  }
+</style>
