@@ -42,10 +42,13 @@ const nav = [
 
 export default function Menu() {
     const [scroll, setScroll] = useState(false);
+    const [showLogo, setShowLogo] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
-            setScroll(window.scrollY > 50);
+          const scrolled = window.scrollY > 20;
+          setScroll(scrolled);
+          setShowLogo(scrolled);
         };
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
@@ -76,14 +79,31 @@ export default function Menu() {
             >
                 <nav className="flex items-center justify-center w-full">
                     {/* Logo */}
-                    <div className="flex-shrink-0 mr-10">
+                    <div className="flex-shrink-0 mr-10 relative h-12 w-32">
                         <a
                             href="/"
-                            className="text-2xl font-bold bg-gradient-to-r from-[#1F3C68] to-[#9C2D32] bg-clip-text text-transparent"
+                            className="block relative h-full"
                         >
-                            LOREL
+                            {/* Logo sin scroll (LOREL LOGO1.png) */}
+                            <img 
+                                src="/assets/images/LOREL LOGO1.png" 
+                                alt="LOREL Logo" 
+                                className={`h-12 w-auto object-contain absolute left-0 top-0
+                                    transition-all duration-700 ease-in-out hover:scale-105
+                                    ${scroll ? 'opacity-0 scale-75 pointer-events-none' : 'opacity-100 scale-100'}`}
+                            />
+                            
+                            {/* Logo con scroll (LOREL LOGO.png) */}
+                            <img 
+                                src="/assets/images/LOREL LOGO.png" 
+                                alt="LOREL Logo" 
+                                className={`h-12 w-auto object-contain absolute left-0 top-0
+                                    transition-all duration-700 ease-in-out hover:scale-105
+                                    ${scroll ? 'opacity-100 scale-100' : 'opacity-0 scale-75 pointer-events-none'}`}
+                            />
                         </a>
                     </div>
+                  
 
                     {/* Links */}
                     <div className="flex items-center space-x-6">
@@ -109,17 +129,26 @@ export default function Menu() {
             </header>
 
             {/* Mobile Header */}
-            <header className="md:hidden fixed left-2 right-2 w-auto rounded-2xl z-50 top-1.5 px-4 py-3 bg-transparent">
+            <header className={`md:hidden fixed left-2 right-2 w-auto rounded-2xl z-50 top-1.5 px-4 py-3 
+                transition-all duration-700 ease-in-out
+                ${scroll 
+                    ? 'bg-white/10 backdrop-blur-[20px] border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.1)]' 
+                    : 'bg-transparent border border-transparent'
+                }`}>
                 <div className="flex justify-center">
-                    <a href="/" className="text-xl font-bold bg-gradient-to-r from-[#1F3C68] to-[#9C2D32] bg-clip-text text-transparent">
-                        LOREL
+                    <a href="/" className="text-xl font-bold">                       
+                        <img 
+                            src="/assets/images/LOREL LOGO.png" 
+                            alt="LOREL Logo" 
+                            className="h-10 w-auto object-contain transition-all duration-300 hover:scale-105"
+                        />
                     </a>
                 </div>
             </header>
 
             {/* Mobile Bottom Nav */}
             <nav className="md:hidden fixed bottom-4 left-4 right-4 z-50">
-                <div className="bg-[#1F3C68]/95 backdrop-blur-lg rounded-2xl shadow-2xl border border-[#9C2D32]/40">
+                <div className="bg-gradient-to-r from-[#1F3C68]/90 to-[#9C2D32]/90 backdrop-blur-[20px] rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-white/20">
                     <div className="flex justify-around items-center py-3">
                         {nav.map((item) => (
                             <a
