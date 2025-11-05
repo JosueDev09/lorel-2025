@@ -1,5 +1,6 @@
 ---
 import Menu from "../components/menu/menu"
+import Footer from '../components/footer/footer.astro';
 // import Footer from "../components/footer/footer.astro";
 // import Analytics from '@vercel/analytics/astro'
 import { ClientRouter } from "astro:transitions";
@@ -17,15 +18,15 @@ const {
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		
 		<!-- Favicons -->
-		<link rel="icon" type="image/svg+xml" href="/cruz-negativa.svg" />
-		<link rel="icon" type="image/png" href="/cruz-negativa.svg" />
-		<link rel="apple-touch-icon" href="/cruz-negativa.svg" />
+		<link rel="icon" type="image/svg+xml" href="/assets/imgConvertidas/LORELLOGO1.webp" />
+		<link rel="icon" type="image/png" href="/assets/imgConvertidas/cruz-negativa.webp" />
+		<link rel="apple-touch-icon" href="/assets/imgConvertidas/cruz-negativa.webp" />
 		
 		<!-- SEO Meta Tags -->
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		<meta name="author" content="Josué Dev" />
-		<meta name="keywords" content="desarrollador, full stack, react, node.js, astro, javascript, typescript, portafolio" />
+		<meta name="keywords" content="etiquetas, cintas, impresión, LOREL, plotter" />
 		
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
@@ -60,7 +61,7 @@ const {
 		</div>
 		  <!-- <Analytics /> -->
 	</body>
-	<!-- <Footer/> -->
+	<Footer />
 </html>
 
 

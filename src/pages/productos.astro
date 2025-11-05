@@ -1,0 +1,1091 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const pageTitle = "Productos - LOREL";
+const pageDescription = "Descubre nuestro amplio catálogo de productos de impresión digital, offset, plotter y acabados.";
+
+// Categorías de productos con imágenes
+const productCategories = [
+  {
+    id: 'imprenta-digital',
+    title: 'Imprenta Digital y Offset',
+    description: 'Productos de alta calidad en impresión digital y offset',
+    color: 'navy',
+    products: [
+      {
+        name: 'Tarjetas de Presentación',
+        image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=2070&auto=format&fit=crop',
+        description: 'Impresión en diversos materiales y acabados',
+        details: 'Tarjetas de presentación de alta calidad con acabados profesionales.',
+        sizes: ['8.5 x 5.5 cm', '9 x 5 cm', 'Personalizado'],
+        materials: ['Papel couché 250g', 'Papel opalina 300g', 'Papel satinado 250g'],
+        finishes: ['Barniz UV', 'Laminado mate', 'Laminado brillante', 'Sin acabado']
+      },
+      {
+        name: 'Hojas Membretadas',
+        image: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=2070&auto=format&fit=crop',
+        description: 'Papel de calidad con tu identidad corporativa',
+        details: 'Hojas membretadas personalizadas para tu empresa con impresión de alta calidad.',
+        sizes: ['Carta (21.5 x 28 cm)', 'Oficio (21.5 x 34 cm)'],
+        materials: ['Papel bond 75g', 'Papel opalina 90g', 'Papel couché 90g'],
+        finishes: ['Sin acabado', 'Pre-impreso']
+      },
+      {
+        name: 'Libretas y Agendas',
+        image: 'https://images.unsplash.com/photo-1517842645767-c639042777db?q=80&w=2070&auto=format&fit=crop',
+        description: 'Personalizadas con tu marca',
+        details: 'Libretas y agendas personalizadas con tu logo e imagen corporativa.',
+        sizes: ['A4', 'A5', 'A6', 'Personalizado'],
+        materials: ['Pasta dura', 'Pasta suave', 'Wire-o', 'Engargolado'],
+        finishes: ['Laminado', 'Barniz', 'Sin acabado']
+      },
+      {
+        name: 'Folletos y Trípticos',
+        image: 'https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?q=80&w=2070&auto=format&fit=crop',
+        description: 'Material publicitario de impacto',
+        details: 'Folletos y trípticos para promocionar tus productos y servicios.',
+        sizes: ['Carta', 'Oficio', '1/2 Carta', 'Personalizado'],
+        materials: ['Papel couché 150g', 'Papel couché 200g', 'Papel opalina 150g'],
+        finishes: ['Barniz UV', 'Laminado', 'Doblado', 'Sin acabado']
+      },
+      {
+        name: 'Volantes',
+        image: 'https://images.unsplash.com/photo-1586864387634-5aae8e02bbcf?q=80&w=2070&auto=format&fit=crop',
+        description: 'Promocionales de alta calidad',
+        details: 'Volantes publicitarios con impresión vibrante y llamativa.',
+        sizes: ['1/2 Carta', 'Carta', '1/4 Carta', 'Personalizado'],
+        materials: ['Papel couché 150g', 'Papel bond 75g', 'Papel opalina 90g'],
+        finishes: ['Sin acabado', 'Barniz', 'Laminado']
+      },
+      {
+        name: 'Gafetes',
+        image: 'https://images.unsplash.com/photo-1569705460033-cfaa4bf9f822?q=80&w=2070&auto=format&fit=crop',
+        description: 'Identificación profesional',
+        details: 'Gafetes de identificación personalizados para eventos y empresas.',
+        sizes: ['8.5 x 5.5 cm', '10 x 7 cm', 'Personalizado'],
+        materials: ['PVC', 'Papel laminado', 'Acrílico'],
+        finishes: ['Laminado', 'Con cordón', 'Con clip']
+      },
+      {
+        name: 'Formatos Autocopiantes',
+        image: 'https://images.unsplash.com/photo-1554224311-beee4ece8db7?q=80&w=2070&auto=format&fit=crop',
+        description: 'Facturación y documentación',
+        details: 'Formatos autocopiantes para facturación, recibos y documentos.',
+        sizes: ['Carta', 'Oficio', '1/2 Carta', 'Personalizado'],
+        materials: ['2 tantos', '3 tantos', '4 tantos'],
+        finishes: ['Engrapado', 'Engargolado', 'Foliado']
+      },
+      {
+        name: 'Sellos',
+        image: 'https://images.unsplash.com/photo-1531346590178-d1967a4a671e?q=80&w=2070&auto=format&fit=crop',
+        description: 'Sellos de goma y seguridad',
+        details: 'Sellos personalizados de goma y automáticos para tu negocio.',
+        sizes: ['2 x 2 cm', '3 x 3 cm', '4 x 4 cm', 'Personalizado'],
+        materials: ['Goma', 'Automático', 'Pre-entintado'],
+        finishes: ['Con mango', 'Automático', 'Pocket']
+      }
+    ]
+  },
+  {
+    id: 'plotter-acabados',
+    title: 'Plotter y Acabados',
+    description: 'Impresión de gran formato y acabados especiales',
+    color: 'wine',
+    products: [
+      {
+        name: 'Lonas Impresas',
+        image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=2071&auto=format&fit=crop',
+        description: 'Gran formato para exteriores e interiores',
+        details: 'Lonas impresas de gran formato para publicidad exterior e interior.',
+        sizes: ['1 x 1 m', '2 x 1 m', '3 x 2 m', 'Personalizado'],
+        materials: ['Lona front', 'Lona backlit', 'Lona mesh'],
+        finishes: ['Con ojillos', 'Con bastidor', 'Solo impresión']
+      },
+      {
+        name: 'Vinil Impreso',
+        image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=2071&auto=format&fit=crop',
+        description: 'Adhesivos de alta durabilidad',
+        details: 'Vinil impreso adhesivo para decoración y rotulación.',
+        sizes: ['50 x 50 cm', '1 x 1 m', 'Rollos', 'Personalizado'],
+        materials: ['Vinil brillante', 'Vinil mate', 'Vinil transparente'],
+        finishes: ['Contorneado', 'Laminado', 'Sin acabado']
+      },
+      {
+        name: 'Vinil de Recorte',
+        image: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=2071&auto=format&fit=crop',
+        description: 'Personalización precisa',
+        details: 'Vinil de recorte para rotulación de vehículos, aparadores y más.',
+        sizes: ['Por metro lineal', 'Personalizado'],
+        materials: ['Vinil brillante', 'Vinil mate', 'Vinil reflectivo'],
+        finishes: ['Contorneado', 'Con transfer', 'Aplicado']
+      },
+      {
+        name: 'Vinil sobre Trovisel',
+        image: 'https://images.unsplash.com/photo-1565793298595-6a879b1d9492?q=80&w=2071&auto=format&fit=crop',
+        description: 'Señalización duradera',
+        details: 'Vinil aplicado sobre trovisel para señalética y rotulación.',
+        sizes: ['60 x 40 cm', '80 x 60 cm', '1 x 1 m', 'Personalizado'],
+        materials: ['Trovisel 3mm', 'Trovisel 6mm', 'Trovisel 10mm'],
+        finishes: ['Con vinil impreso', 'Con vinil de recorte', 'Perforado para montaje']
+      },
+      {
+        name: 'Laminado',
+        image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2074&auto=format&fit=crop',
+        description: 'Protección y brillo profesional',
+        details: 'Servicio de laminado para proteger y dar acabado profesional.',
+        sizes: ['Carta', 'Oficio', 'A3', 'Gran formato'],
+        materials: ['Laminado mate', 'Laminado brillante', 'Laminado soft touch'],
+        finishes: ['Frío', 'Caliente']
+      },
+      {
+        name: 'Troquelado',
+        image: 'https://images.unsplash.com/photo-1590859808308-3d2d9c515b1a?q=80&w=2074&auto=format&fit=crop',
+        description: 'Formas personalizadas',
+        details: 'Troquelado de formas especiales para tus impresiones.',
+        sizes: ['Personalizado según diseño'],
+        materials: ['Papel', 'Cartulina', 'Cartón'],
+        finishes: ['Corte recto', 'Corte curvo', 'Formas especiales']
+      },
+      {
+        name: 'Barniz UV',
+        image: 'https://images.unsplash.com/photo-1517842645767-c639042777db?q=80&w=2070&auto=format&fit=crop',
+        description: 'Acabado brillante y protección',
+        details: 'Aplicación de barniz UV para protección y acabado brillante.',
+        sizes: ['Hasta A3', 'Gran formato bajo cotización'],
+        materials: ['Barniz brillante', 'Barniz mate', 'Barniz selectivo'],
+        finishes: ['Total', 'Selectivo (resaltes)']
+      },
+      {
+        name: 'Encuadernación',
+        image: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=2074&auto=format&fit=crop',
+        description: 'Presentaciones profesionales',
+        details: 'Servicios de encuadernación para documentos y presentaciones.',
+        sizes: ['Carta', 'Oficio', 'A4', 'Personalizado'],
+        materials: ['Pasta dura', 'Pasta suave', 'Wire-o', 'Espiral'],
+        finishes: ['Engargolado', 'Espiral', 'Wire-o', 'Hotmelt']
+      }
+    ]
+  }
+];
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <!-- Hero -->
+  <section class="products-hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Nuestros Productos</h1>
+      <p class="hero-description">
+        Soluciones de impresión de alta calidad para cada necesidad
+      </p>
+      <!-- Navegación rápida -->
+      <div class="hero-nav">
+        <a href="#imprenta-digital" class="nav-btn">Imprenta Digital</a>
+        <a href="#plotter-acabados" class="nav-btn">Plotter y Acabados</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galería de productos por categoría -->
+  {productCategories.map((category) => (
+    <section class={`products-category ${category.color}`} id={category.id}>
+      <div class="category-container">
+        <!-- Header de categoría -->
+        <div class="category-header">
+          <h2 class="category-title">{category.title}</h2>
+          <p class="category-description">{category.description}</p>
+        </div>
+
+        <!-- Grid de productos -->
+        <div class="products-grid">
+          {category.products.map((product, index) => (
+            <div class="product-card" data-product-name={product.name}>
+              <div class="product-image-wrapper">
+                <img 
+                  src={product.image} 
+                  alt={product.name}
+                  class="product-image"
+                  loading="lazy"
+                />
+                <div class="product-overlay">
+                  <button 
+                    class="view-btn"
+                    data-product={JSON.stringify(product)}
+                  >
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="11" cy="11" r="8"/>
+                      <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                    Ver más
+                  </button>
+                </div>
+              </div>
+              <div class="product-info">
+                <h3 class="product-name">{product.name}</h3>
+                <p class="product-description">{product.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-container">
+      <div class="cta-content">
+        <h2 class="cta-title">¿Necesitas un producto personalizado?</h2>
+        <p class="cta-description">
+          Contáctanos y cotiza tu proyecto. Nos adaptamos a tus necesidades específicas.
+        </p>
+        <a href="/contacto" class="cta-btn">
+          Solicitar Cotización
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="productModal" class="modal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Cerrar">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+      
+      <div class="modal-body">
+        <div class="modal-image">
+          <img id="modalImage" src="" alt="" />
+        </div>
+        
+        <div class="modal-info">
+          <h2 id="modalTitle" class="modal-title"></h2>
+          <p id="modalDetails" class="modal-details"></p>
+          
+          <div class="modal-specs">
+            <div class="spec-group">
+              <h3 class="spec-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                </svg>
+                Tamaños Disponibles
+              </h3>
+              <ul id="modalSizes" class="spec-list"></ul>
+            </div>
+            
+            <div class="spec-group">
+              <h3 class="spec-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                </svg>
+                Materiales
+              </h3>
+              <ul id="modalMaterials" class="spec-list"></ul>
+            </div>
+            
+            <div class="spec-group">
+              <h3 class="spec-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+                </svg>
+                Acabados
+              </h3>
+              <ul id="modalFinishes" class="spec-list"></ul>
+            </div>
+          </div>
+          
+          <button id="quoteBtn" class="quote-btn">
+            Solicitar Cotización
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  /* Hero */
+  .products-hero {
+    position: relative;
+    height: 100vh;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('https://images.unsplash.com/photo-1611224885990-ab7363d1f2a6?q=80&w=2039&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(35, 31, 32, 0.85) 0%,
+      rgba(31, 60, 104, 0.9) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    max-width: 900px;
+    padding: 0 2rem;
+  }
+
+  .hero-title {
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    letter-spacing: -0.02em;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.3s forwards;
+    
+    /* Efecto Glass */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 1.5rem 2.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+  }
+
+  .hero-description {
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.6s forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hero-nav {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.9s forwards;
+  }
+
+  .nav-btn {
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid white;
+    color: white;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+  }
+
+  .nav-btn:hover {
+    background: white;
+    color: var(--color-navy);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+  }
+
+  /* Categorías de productos */
+  .products-category {
+    padding: 6rem 2rem;
+  }
+
+  .products-category.navy {
+    background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+  }
+
+  .products-category.wine {
+    background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+  }
+
+  .category-container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  /* Header de categoría */
+  .category-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .category-title {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 700;
+    color: var(--color-black);
+    margin-bottom: 1rem;
+  }
+
+  .products-category.navy .category-title {
+    color: var(--color-navy);
+  }
+
+  .products-category.wine .category-title {
+    color: var(--color-wine);
+  }
+
+  .category-description {
+    font-size: 1.25rem;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* Grid de productos */
+  .products-grid {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-bottom: 2rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .products-grid::-webkit-scrollbar {
+    height: 10px;
+  }
+
+  .products-grid::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  .products-grid::-webkit-scrollbar-thumb {
+    background: var(--color-navy);
+    border-radius: 10px;
+  }
+
+  .products-grid::-webkit-scrollbar-thumb:hover {
+    background: var(--color-wine);
+  }
+
+  /* Tarjeta de producto */
+  .product-card {
+    background: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    min-width: 350px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
+
+  .product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  }
+
+  .products-category.navy .product-card:hover {
+    border-color: var(--color-navy);
+  }
+
+  .products-category.wine .product-card:hover {
+    border-color: var(--color-wine);
+  }
+
+  /* Imagen del producto */
+  .product-image-wrapper {
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+  }
+
+  .product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .product-card:hover .product-image {
+    transform: scale(1.1);
+  }
+
+  .product-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .product-card:hover .product-overlay {
+    opacity: 1;
+  }
+
+  .view-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    background: white;
+    color: var(--color-black);
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .products-category.navy .view-btn {
+    background: var(--color-navy);
+    color: white;
+  }
+
+  .products-category.wine .view-btn {
+    background: var(--color-wine);
+    color: white;
+  }
+
+  .view-btn:hover {
+    transform: scale(1.05);
+  }
+
+  /* Información del producto */
+  .product-info {
+    padding: 1.75rem;
+  }
+
+  .product-name {
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: var(--color-black);
+    margin-bottom: 0.75rem;
+  }
+
+  .product-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+    margin: 0;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    padding: 6rem 2rem;
+    background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-black) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(156, 45, 50, 0.3) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-container {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-content {
+    text-align: center;
+    color: white;
+  }
+
+  .cta-title {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-description {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.25rem 3rem;
+    background: var(--color-wine);
+    color: white;
+    text-decoration: none;
+    border-radius: 0.75rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(156, 45, 50, 0.4);
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(156, 45, 50, 0.6);
+  }
+
+  .cta-btn svg {
+    transition: transform 0.3s ease;
+  }
+
+  .cta-btn:hover svg {
+    transform: translateX(5px);
+  }
+
+  /* Modal */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .modal.active {
+    display: flex;
+  }
+
+  .modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
+  }
+
+  .modal-content {
+    position: relative;
+    background: white;
+    border-radius: 1.5rem;
+    max-width: 1100px;
+    width: 100%;
+    max-height: 90vh;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.4s ease;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 40px;
+    height: 40px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .modal-close:hover {
+    background: var(--color-wine);
+    color: white;
+    transform: rotate(90deg);
+  }
+
+  .modal-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .modal-image {
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    min-height: 400px;
+  }
+
+  .modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  .modal-info {
+    padding: 3rem;
+    overflow-y: auto;
+  }
+
+  .modal-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-black);
+    margin-bottom: 1rem;
+  }
+
+  .modal-details {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid #f0f0f0;
+  }
+
+  .modal-specs {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .spec-group {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+  }
+
+  .spec-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-navy);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .spec-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .spec-list li {
+    font-size: 1rem;
+    color: #555;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .spec-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0.5rem;
+    color: var(--color-wine);
+    font-weight: bold;
+  }
+
+  .quote-btn {
+    width: 100%;
+    padding: 1.25rem 2rem;
+    background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-wine) 100%);
+    color: white;
+    border: none;
+    border-radius: 0.75rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(31, 60, 104, 0.3);
+  }
+
+  .quote-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(31, 60, 104, 0.5);
+  }
+
+  .quote-btn svg {
+    transition: transform 0.3s ease;
+  }
+
+  .quote-btn:hover svg {
+    transform: translateX(5px);
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 968px) {
+    .products-hero {
+      height: 60vh;
+      min-height: 450px;
+    }
+
+    .products-category {
+      padding: 4rem 1.5rem;
+    }
+
+    .category-header {
+      margin-bottom: 3rem;
+    }
+
+    .products-grid {
+      gap: 1.5rem;
+    }
+
+    .product-card {
+      min-width: 320px;
+    }
+
+    .cta-section {
+      padding: 4rem 1.5rem;
+    }
+
+    .modal-body {
+      grid-template-columns: 1fr;
+    }
+
+    .modal-image {
+      min-height: 300px;
+      padding: 2rem;
+    }
+
+    .modal-info {
+      padding: 2rem;
+    }
+
+    .modal-title {
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .products-hero {
+      height: 50vh;
+      min-height: 400px;
+      background-attachment: scroll;
+    }
+
+    .hero-nav {
+      flex-direction: column;
+    }
+
+    .nav-btn {
+      width: 100%;
+    }
+
+    .products-category {
+      padding: 3rem 1rem;
+    }
+
+    .products-grid {
+      gap: 1rem;
+    }
+
+    .product-card {
+      min-width: 280px;
+    }
+
+    .product-image-wrapper {
+      height: 220px;
+    }
+
+    .product-info {
+      padding: 1.5rem;
+    }
+
+    .cta-section {
+      padding: 3rem 1rem;
+    }
+
+    .cta-btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .modal {
+      padding: 1rem;
+    }
+
+    .modal-image {
+      min-height: 250px;
+      padding: 1.5rem;
+    }
+
+    .modal-info {
+      padding: 1.5rem;
+    }
+
+    .modal-title {
+      font-size: 1.75rem;
+    }
+
+    .modal-details {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+    }
+
+    .spec-group {
+      padding: 1rem;
+    }
+
+    .spec-title {
+      font-size: 1rem;
+    }
+
+    .quote-btn {
+      padding: 1rem;
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<script>
+  const modal = document.getElementById('productModal');
+  const modalOverlay = modal?.querySelector('.modal-overlay');
+  const modalClose = modal?.querySelector('.modal-close');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalImage = document.getElementById('modalImage') as HTMLImageElement;
+  const modalDetails = document.getElementById('modalDetails');
+  const modalSizes = document.getElementById('modalSizes');
+  const modalMaterials = document.getElementById('modalMaterials');
+  const modalFinishes = document.getElementById('modalFinishes');
+  const quoteBtn = document.getElementById('quoteBtn');
+
+  let currentProduct = '';
+
+  // Abrir modal
+  document.querySelectorAll('.view-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const productData = btn.getAttribute('data-product');
+      if (!productData) return;
+
+      const product = JSON.parse(productData);
+      currentProduct = product.name;
+
+      // Llenar datos del modal
+      if (modalTitle) modalTitle.textContent = product.name;
+      if (modalImage) {
+        modalImage.src = product.image;
+        modalImage.alt = product.name;
+      }
+      if (modalDetails) modalDetails.textContent = product.details;
+
+      // Llenar tamaños
+      if (modalSizes) {
+        modalSizes.innerHTML = product.sizes.map((size: string) => `<li>${size}</li>`).join('');
+      }
+
+      // Llenar materiales
+      if (modalMaterials) {
+        modalMaterials.innerHTML = product.materials.map((material: string) => `<li>${material}</li>`).join('');
+      }
+
+      // Llenar acabados
+      if (modalFinishes) {
+        modalFinishes.innerHTML = product.finishes.map((finish: string) => `<li>${finish}</li>`).join('');
+      }
+
+      // Mostrar modal
+      modal?.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  // Cerrar modal
+  const closeModal = () => {
+    modal?.classList.remove('active');
+    document.body.style.overflow = '';
+  };
+
+  modalClose?.addEventListener('click', closeModal);
+  modalOverlay?.addEventListener('click', closeModal);
+
+  // Escape key para cerrar
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal?.classList.contains('active')) {
+      closeModal();
+    }
+  });
+
+  // Botón de cotización
+  quoteBtn?.addEventListener('click', () => {
+    // Guardar producto en localStorage
+    localStorage.setItem('selectedProduct', currentProduct);
+    // Redirigir a contacto
+    window.location.href = '/contacto?producto=' + encodeURIComponent(currentProduct);
+  });
+</script>

@@ -1,0 +1,863 @@
+---
+import Layout from '../layouts/Layout.astro';
+import About from '../components/about/about.astro';
+
+const pageTitle = "Sobre Nosotros - LOREL";
+const pageDescription = "Conoce nuestra historia, misión, visión y valores. Más de 25 años de excelencia en el sector de la impresión.";
+
+const milestones = [
+  {
+    year: '1998',
+    title: 'Fundación',
+    description: 'Iniciamos operaciones como una pequeña imprenta familiar con pasión por la calidad.'
+  },
+  {
+    year: '2005',
+    title: 'Expansión',
+    description: 'Ampliamos nuestras instalaciones e incorporamos tecnología digital de vanguardia.'
+  },
+  {
+    year: '2012',
+    title: 'Innovación',
+    description: 'Integramos servicios de gran formato y acabados especiales.'
+  },
+  {
+    year: '2025',
+    title: 'Liderazgo',
+    description: 'Nos consolidamos como referente en impresión sustentable y de alta calidad.'
+  }
+];
+
+const values = [
+  {
+    icon: 'quality',
+    title: 'Calidad',
+    description: 'Compromiso absoluto con la excelencia en cada proyecto que realizamos.'
+  },
+  {
+    icon: 'innovation',
+    title: 'Innovación',
+    description: 'Tecnología de punta y procesos actualizados constantemente.'
+  },
+  {
+    icon: 'responsibility',
+    title: 'Responsabilidad',
+    description: 'Prácticas sostenibles que cuidan el medio ambiente.'
+  },
+  {
+    icon: 'service',
+    title: 'Servicio',
+    description: 'Atención personalizada y soluciones adaptadas a cada cliente.'
+  }
+];
+
+const team = [
+  {
+    name: 'Dirección General',
+    description: 'Liderazgo estratégico y visión de negocio',
+    icon: 'leadership'
+  },
+  {
+    name: 'Producción',
+    description: 'Expertos en impresión y acabados',
+    icon: 'production'
+  },
+  {
+    name: 'Diseño',
+    description: 'Creatividad y soluciones visuales',
+    icon: 'design'
+  },
+  {
+    name: 'Atención al Cliente',
+    description: 'Servicio personalizado y seguimiento',
+    icon: 'support'
+  }
+];
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <!-- Hero Minimalista -->
+  <section class="hero-minimal">
+    <div class="hero-content">
+      <span class="hero-tag">Desde 1998</span>
+      <h1 class="hero-title">Sobre Nosotros</h1>
+      <p class="hero-subtitle">
+        Más de 25 años transformando ideas en impresiones de calidad excepcional
+      </p>
+    </div>
+    
+    <!-- Icono de scroll animado -->
+    <div class="scroll-indicator">
+      <div class="scroll-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+      </div>
+      <span class="scroll-text">Scroll</span>
+    </div>
+    
+    <div class="hero-decoration"></div>
+  </section>
+
+  <!-- Misión y Visión -->
+  <section class="mission-vision">
+    <div class="container">
+        <About />
+      <div class="mv-grid">
+        <div class="mv-card">
+          <div class="mv-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <h2 class="mv-title">Misión</h2>
+          <p class="mv-text">
+            Proporcionar soluciones de impresión innovadoras y de alta calidad que superen las expectativas de nuestros clientes, 
+            utilizando tecnología de vanguardia y prácticas sostenibles que cuiden nuestro planeta.
+          </p>
+        </div>
+
+        <div class="mv-card">
+          <div class="mv-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </div>
+          <h2 class="mv-title">Visión</h2>
+          <p class="mv-text">
+            Ser la empresa líder en impresión digital y offset reconocida por nuestra excelencia, innovación constante 
+            y compromiso con la satisfacción del cliente y el cuidado del medio ambiente.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Historia Timeline -->
+  <section class="history">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Nuestra Historia</h2>
+        <p class="section-subtitle">Un recorrido de crecimiento y evolución constante</p>
+      </div>
+
+      <div class="timeline">
+        {milestones.map((milestone, index) => (
+          <div class={`timeline-item ${index % 2 === 0 ? 'left' : 'right'}`}>
+            <div class="timeline-content">
+              <span class="timeline-year">{milestone.year}</span>
+              <h3 class="timeline-title">{milestone.title}</h3>
+              <p class="timeline-description">{milestone.description}</p>
+            </div>
+            <div class="timeline-dot"></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Valores -->
+  <section class="values">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Nuestros Valores</h2>
+        <p class="section-subtitle">Los pilares que guían nuestro trabajo diario</p>
+      </div>
+
+      <div class="values-grid">
+        {values.map((value) => (
+          <div class="value-card">
+            <div class="value-icon">
+              {value.icon === 'quality' && (
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              )}
+              {value.icon === 'innovation' && (
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              )}
+              {value.icon === 'responsibility' && (
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+              )}
+              {value.icon === 'service' && (
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+              )}
+            </div>
+            <h3 class="value-title">{value.title}</h3>
+            <p class="value-description">{value.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Equipo -->
+ 
+
+  <!-- CTA Final -->
+  <section class="cta-final">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">¿Listo para trabajar con nosotros?</h2>
+        <p class="cta-text">
+          Descubre cómo podemos ayudarte a materializar tus proyectos de impresión
+        </p>
+        <div class="cta-buttons">
+          <a href="/contacto" class="btn-primary">Contáctanos</a>
+          <a href="/productos" class="btn-secondary">Ver Productos</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  :root {
+    --color-navy: #1F3C68;
+    --color-wine: #9C2D32;
+    --color-black: #231F20;
+  }
+
+  /* Hero Minimalista */
+  .hero-minimal {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(
+      135deg,
+      rgba(31, 60, 104, 0.9) 0%,
+      rgba(156, 45, 50, 0.85) 100%
+    );
+    overflow: hidden;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 4rem 2rem;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background: var(--color-navy);
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 50px;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.2s forwards;
+  }
+
+  .hero-title {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 800;
+    color: white;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.4s forwards;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    color: #4a4a4a;
+    font-weight: 400;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.6s forwards;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+  }
+
+  .hero-decoration {
+    position: absolute;
+    top: 10%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(31, 60, 104, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  /* Indicador de scroll */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 1s forwards, float 2s ease-in-out 1s infinite;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .scroll-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(31, 60, 104, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 2px solid rgba(31, 60, 104, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+
+  .scroll-icon svg {
+    color: var(--color-navy);
+    animation: bounceArrow 1.5s ease-in-out infinite;
+  }
+
+  .scroll-indicator:hover .scroll-icon {
+    background: rgba(31, 60, 104, 0.2);
+    border-color: var(--color-navy);
+    transform: scale(1.1);
+  }
+
+  .scroll-text {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-navy);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    50% {
+      transform: translateX(-50%) translateY(-15px);
+    }
+  }
+
+  @keyframes bounceArrow {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(5px);
+    }
+  }
+
+  /* Container */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Section Header */
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-title {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 700;
+    color: var(--color-black);
+    margin-bottom: 1rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.125rem;
+    color: #666;
+    font-weight: 300;
+  }
+
+  /* Misión y Visión */
+  .mission-vision {
+    padding: 6rem 2rem;
+    background: white;
+  }
+
+  .mv-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
+  }
+
+  .mv-card {
+    padding: 3rem;
+    background: #f8f9fa;
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .mv-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  .mv-icon {
+    width: 70px;
+    height: 70px;
+    background: var(--color-navy);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .mv-card:nth-child(2) .mv-icon {
+    background: var(--color-wine);
+  }
+
+  .mv-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-black);
+    margin-bottom: 1rem;
+  }
+
+  .mv-text {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #555;
+  }
+
+  /* Historia Timeline */
+  .history {
+    padding: 6rem 2rem;
+    background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+  }
+
+  .timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 0;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--color-navy);
+    transform: translateX(-50%);
+  }
+
+  .timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .timeline-item.left {
+    left: 0;
+    padding-right: 3rem;
+  }
+
+  .timeline-item.right {
+    left: 50%;
+    padding-left: 3rem;
+  }
+
+  .timeline-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    position: relative;
+  }
+
+  .timeline-dot {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--color-wine);
+    border: 4px solid white;
+    border-radius: 50%;
+    top: 2.5rem;
+    box-shadow: 0 0 0 4px var(--color-navy);
+  }
+
+  .timeline-item.left .timeline-dot {
+    right: -10px;
+  }
+
+  .timeline-item.right .timeline-dot {
+    left: -10px;
+  }
+
+  .timeline-year {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--color-navy);
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 700;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+  }
+
+  .timeline-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-black);
+    margin-bottom: 0.75rem;
+  }
+
+  .timeline-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+  }
+
+  /* Valores */
+  .values {
+    padding: 6rem 2rem;
+    background: white;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2.5rem;
+  }
+
+  .value-card {
+    text-align: center;
+    padding: 2.5rem 2rem;
+    background: #f8f9fa;
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .value-card:hover {
+    transform: translateY(-10px);
+    background: var(--color-navy);
+    color: white;
+  }
+
+  .value-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-navy);
+    transition: color 0.3s ease;
+  }
+
+  .value-card:hover .value-icon {
+    color: white;
+  }
+
+  .value-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-black);
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+  }
+
+  .value-card:hover .value-title {
+    color: white;
+  }
+
+  .value-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+    transition: color 0.3s ease;
+  }
+
+  .value-card:hover .value-description {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* Equipo */
+  .team {
+    padding: 6rem 2rem;
+    background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  .team-card {
+    text-align: center;
+    padding: 2.5rem 2rem;
+    background: white;
+    border-radius: 1rem;
+    border: 2px solid #f0f0f0;
+    transition: all 0.3s ease;
+  }
+
+  .team-card:hover {
+    border-color: var(--color-wine);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .team-icon-wrapper {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-wine) 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .team-icon {
+    color: white;
+  }
+
+  .team-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-black);
+    margin-bottom: 0.75rem;
+  }
+
+  .team-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+  }
+
+  /* CTA Final */
+  .cta-final {
+    padding: 6rem 2rem;
+    background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-black) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-final::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(156, 45, 50, 0.2) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-content {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-title {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .cta-text {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 1.25rem 3rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    border-radius: 0.75rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+
+  .btn-primary {
+    background: var(--color-wine);
+    color: white;
+    box-shadow: 0 8px 25px rgba(156, 45, 50, 0.4);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(156, 45, 50, 0.6);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+  }
+
+  .btn-secondary:hover {
+    background: white;
+    color: var(--color-navy);
+    transform: translateY(-3px);
+  }
+
+  /* Responsive */
+  @media (max-width: 968px) {
+    .hero-minimal {
+      min-height: 50vh;
+    }
+
+    .mv-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .timeline::before {
+      left: 30px;
+    }
+
+    .timeline-item {
+      width: 100%;
+      left: 0 !important;
+      padding-left: 5rem !important;
+      padding-right: 2rem !important;
+    }
+
+    .timeline-item .timeline-dot {
+      left: 21px !important;
+    }
+
+    .values-grid,
+    .team-grid {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero-content {
+      padding: 3rem 1rem;
+    }
+
+    .mission-vision,
+    .history,
+    .values,
+    .team,
+    .cta-final {
+      padding: 4rem 1rem;
+    }
+
+    .section-header {
+      margin-bottom: 3rem;
+    }
+
+    .mv-card {
+      padding: 2rem;
+    }
+
+    .timeline-item {
+      padding-left: 4rem !important;
+      padding-right: 1rem !important;
+    }
+
+    .values-grid,
+    .team-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      width: 100%;
+    }
+
+    .scroll-indicator {
+      bottom: 2rem;
+    }
+
+    .scroll-icon {
+      width: 45px;
+      height: 45px;
+    }
+  }
+</style>
+
+<script>
+  // Scroll suave al hacer clic en el indicador
+  const scrollIndicator = document.querySelector('.scroll-indicator');
+  
+  scrollIndicator?.addEventListener('click', () => {
+    const missionSection = document.querySelector('.mission-vision');
+    missionSection?.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    });
+  });
+
+  // Ocultar el indicador al hacer scroll
+  window.addEventListener('scroll', () => {
+    const scrollIndicator = document.querySelector('.scroll-indicator') as HTMLElement;
+    if (scrollIndicator) {
+      if (window.scrollY > 100) {
+        scrollIndicator.style.opacity = '0';
+        scrollIndicator.style.pointerEvents = 'none';
+      } else {
+        scrollIndicator.style.opacity = '1';
+        scrollIndicator.style.pointerEvents = 'auto';
+      }
+    }
+  });
+</script>

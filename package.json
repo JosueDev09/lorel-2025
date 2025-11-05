@@ -14,8 +14,12 @@
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
     "astro": "^5.15.3",
+    "nodemailer": "^7.0.10",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "tailwindcss": "^4.1.16"
+  },
+  "devDependencies": {
+    "@types/nodemailer": "^7.0.3"
   }
 }
