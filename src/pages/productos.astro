@@ -901,12 +901,24 @@ const productCategories = [
       margin-bottom: 3rem;
     }
 
+    /* Cambiar a grid en tablet */
     .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 1.5rem;
+      overflow-x: visible;
+      scroll-snap-type: none;
+      padding-bottom: 1rem;
+    }
+
+    .products-grid::-webkit-scrollbar {
+      display: none;
     }
 
     .product-card {
-      min-width: 320px;
+      min-width: auto;
+      width: 100%;
+      scroll-snap-align: none;
     }
 
     .cta-section {
@@ -940,6 +952,16 @@ const productCategories = [
 
     .hero-nav {
       flex-direction: column;
+    }
+
+    /* Una columna en móvil */
+    .products-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .product-card {
+      max-width: 100%;
     }
 
     .nav-btn {
